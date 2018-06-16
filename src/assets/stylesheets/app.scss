@@ -1,0 +1,177 @@
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 40px;
+
+  h1 {
+    margin: 30px 0 0 0;
+    color: #008000;
+  }
+
+  h2 {
+    margin: 35px 0 10px 0;
+  }
+
+  .description {
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  input[type="text"] {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 7px;
+    font-size: 15px;
+    width: 400px;
+  }
+
+  #when {
+    margin: auto;
+    width: 380px;
+    #date {
+      float: left;
+      margin: 0 10px 0 0;
+      label {
+        position: relative;
+        display: inline-block;
+        margin-right: 60px;
+        width: 160px;
+        height: 36px;
+        border: 2px solid #ccc;
+        border-radius: 15px;
+      }
+
+      label::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: -43px;
+        width: 36px;
+        height: 36px;
+        background-color: transparent;
+        background-image: url("https://uploads.codesandbox.io/uploads/user/7aea28f2-5178-4c50-a203-997db41c7823/yGt8-calendar_icon.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 10px;
+      }
+
+      input[type="date"] {
+        position: relative;
+        padding: 0 10px;
+        width: 200px;
+        height: 36px;
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        font-size: 16px;
+        font-family: antialiased;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      input[type="date"]::-webkit-clear-button {
+        position: relative;
+        top: 0;
+        padding: 1.5px;
+        right: 40px;
+        cursor: pointer;
+      }
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        background: transparent;
+        color: transparent;
+        cursor: pointer;
+      }
+    }
+
+    #time {
+      float: left;
+      label {
+        position: relative;
+        display: inline-block;
+        width: 105px;
+        height: 36px;
+        border: 2px solid #ccc;
+        border-radius: 15px;
+      }
+
+      input[type="time"] {
+        position: relative;
+        padding: 0 10px;
+        height: 36px;
+        width: 140px;
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        font-size: 16px;
+        font-family: antialiased;
+      }
+      input[type="time"]::-webkit-clear-button {
+        position: relative;
+        padding: 1.5px;
+        top: 0;
+        right: 4px;
+        cursor: pointer;
+      }
+      input[type="time"]::-webkit-inner-spin-button {
+        position: relative;
+        top: 0;
+        right: -13px;
+        padding: 5px;
+        margin: 6px 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #repeatItemList {
+    ul {
+      list-style: none;
+      width: 450px;
+      margin: auto;
+      li {
+        margin: 0 20px 10px 0;
+        float: left;
+      }
+    }
+    input[type="radio"] {
+      font-size: 15px;
+    }
+    label {
+      font-size: 20px;
+    }
+  }
+
+  #generatedRemind {
+    color: #008000;
+    #remindCommand {
+      margin: auto;
+      width: 500px;
+      border: solid 2px #777;
+      padding: 7px;
+      label {
+        font-size: 15px;
+        color: #ff0000;
+        font-weight: bold;
+      }
+    }
+    button {
+      padding: 6px;
+      margin: 15px;
+      font-size: 14px;
+      font-family: antialiased;
+    }
+  }
+}
