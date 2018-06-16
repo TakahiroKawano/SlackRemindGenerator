@@ -11,7 +11,6 @@ Vue.config.productionTip = false;
 //   .register("./service-worker.js")
 //   .catch(console.error.bind(console));
 
-/* eslint-disable no-new */
 new Vue({
   el: "#app",
   components: { App },

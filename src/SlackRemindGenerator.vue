@@ -5,8 +5,8 @@
     <input type="text" v-model="whom">
     <h2>What?</h2>
     <input type="text" v-model="what">
+    <h2>When?</h2>
     <div id="when">
-      <h2>When?</h2>
       <div id="date">
         <label>
           <input type="date"
