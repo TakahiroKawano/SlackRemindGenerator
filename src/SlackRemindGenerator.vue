@@ -96,8 +96,14 @@ export default {
         dayOfWeek = moment().format("dddd");
       }
 
-      var remindTime;
-      this.time !== "" ? (remindTime = "at " + this.time) : (remindTime = "");
+      var remindTime = "";
+      if(this.time) {
+        remindTime = this.time;
+        var hour = remindTime.split(":")[0];
+        var minute = remindTime.split(":")[1];
+        Number(hour) < 12 ? remindTime = hour + ":" + minute + "am" : remindTime = String(Number(hour) - 12) + ":" + minute + "pm";
+        remindTime = "at " + remindTime;
+      }
 
       var repeat;
       switch (this.repeat) {
@@ -114,7 +120,8 @@ export default {
           repeat = "every other " + dayOfWeek;
           break;
         case "EveryMonth":
-          repeat = "every Month";
+          remindDate = ""
+          repeat = "on the " + moment(this.date).format("Do") + " every Month";
           break;
         case "EveryYear":
           repeat = "every Year";
@@ -140,6 +147,7 @@ export default {
   },
   methods: {
     copy: function() {
+    console.log(this.time)
       var remindCommand = document.getElementById("remindCommand");
       var copyFrom = document.createElement("textarea");
       copyFrom.textContent = remindCommand.innerText;
