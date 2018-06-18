@@ -88,12 +88,15 @@ export default {
     generatedRemind: function() {
       var remindDate;
       var dayOfWeek;
+      var dayDo;
       if (this.date !== "") {
         remindDate = "on " + moment(this.date).format("MM/DD/YYYY");
         dayOfWeek = moment(this.date).format("dddd");
+        dayDo = moment(this.date).format("Do");
       } else {
         remindDate = "";
         dayOfWeek = moment().format("dddd");
+        dayDo = moment().format("Do");
       }
 
       var remindTime = "";
@@ -121,7 +124,7 @@ export default {
           break;
         case "EveryMonth":
           remindDate = ""
-          repeat = "on the " + moment(this.date).format("Do") + " every Month";
+          repeat = "on the " + dayDo + " every Month";
           break;
         case "EveryYear":
           repeat = "every Year";
