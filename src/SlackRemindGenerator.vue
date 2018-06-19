@@ -70,7 +70,7 @@ export default {
       time: "",
       remindDate: "",
       datetimeMinFormat: moment().format("YYYY-MM-DD"),
-      datetimeMaxFormat: moment().format("9999-12-31"),
+      datetimeMaxFormat: moment().format("2700-12-31"),
       repeatItems: [
         "None",
         "EveryDay",
@@ -79,8 +79,7 @@ export default {
         "EveryMonth",
         "EveryYear"
       ],
-      repeat: "None",
-      repeatTest: ""
+      repeat: "None"
     };
   },
   components: {},
