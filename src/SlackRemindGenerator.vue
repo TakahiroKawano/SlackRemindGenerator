@@ -8,19 +8,28 @@
     <h2>When?</h2>
     <div id="when">
       <div id="date">
-        <label>
-          <input type="date"
-            v-model="date"
-            v-bind:min="datetimeMinFormat"
-            v-bind:max="datetimeMaxFormat">
-        </label>
+        <datepicker
+          v-model="date"
+          format="MM/dd/yyyy"
+          placeholder="Date"
+          clear-button
+          :disabled-dates="{ to: new Date(Date.now() - 8640000) }">
+        </datepicker>
       </div>
       <div id="time">
-        <label>
-          <input type="time"
-            v-model="time"
-            step="600">
-        </label>
+        <select v-model="hour">
+          <option value="">Hour</option>
+          <option v-for="hour in hours" v-bind:key="hour">
+            {{ hour }}
+          </option>
+        </select>
+        <b>:</b>
+        <select v-model="minute">
+          <option value="">Minute</option>
+          <option v-for="minute in minutes" v-bind:key="minute">
+            {{ minute }}
+          </option>
+        </select>
       </div>
     </div>
     <div class="clear"></div>
@@ -59,6 +68,7 @@
 <script>
 /* eslint-disable */
 import moment from "moment";
+import Datepicker from 'vuejs-datepicker';
 
 export default {
   name: "SlackRemindGenerator",
@@ -67,10 +77,9 @@ export default {
       whom: "",
       what: "",
       date: "",
-      time: "",
+      hour: "",
+      minute: "",
       remindDate: "",
-      datetimeMinFormat: moment().format("YYYY-MM-DD"),
-      datetimeMaxFormat: moment().format("2700-12-31"),
       repeatItems: [
         "None",
         "EveryDay",
@@ -79,16 +88,52 @@ export default {
         "EveryMonth",
         "EveryYear"
       ],
-      repeat: "None"
+      repeat: "None",
+      hours: [
+        "00",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23"
+      ],
+      minutes: [
+        "00",
+        "10",
+        "20",
+        "30",
+        "40",
+        "50"
+      ]
     };
   },
-  components: {},
+  components: {
+    Datepicker
+  },
   computed: {
     generatedRemind: function() {
-      var remindDate;
-      var dayOfWeek;
-      var dayDo;
-      if (this.date !== "") {
+      var remindDate = "";
+      var dayOfWeek = "";
+      var dayDo = "";
+      if (this.date) {
         remindDate = "on " + moment(this.date).format("MM/DD/YYYY");
         dayOfWeek = moment(this.date).format("dddd");
         dayDo = moment(this.date).format("Do");
@@ -99,11 +144,10 @@ export default {
       }
 
       var remindTime = "";
-      if(this.time) {
-        remindTime = this.time;
-        var hour = remindTime.split(":")[0];
-        var minute = remindTime.split(":")[1];
-        Number(hour) < 12 ? remindTime = hour + ":" + minute + "am" : remindTime = String(Number(hour) - 12) + ":" + minute + "pm";
+      if(this.hour && this.minute) {
+        Number(this.hour) < 12 ?
+          remindTime = this.hour + ":" + this.minute + "am" :
+          remindTime = String(Number(this.hour) - 12) + ":" + this.minute + "pm";
         remindTime = "at " + remindTime;
       }
 

@@ -39,125 +39,45 @@
     }
   }
 
+  select {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    height: 35px;
+    padding: 7px;
+    font-size: 15px;
+  }
+
   #when {
     margin: auto;
     width: 350px;
 
     #date {
       float: left;
-      label {
-        position: relative;
-        display: inline-block;
-        margin-right: 50px;
-        width: 155px;
-        height: 36px;
-        border: 2px solid #ccc;
-        border-radius: 15px;
+      margin: 0 5px;
+
+      input[type="text"] {
+        width: 120px;
       }
 
-      label::before {
-        position: absolute;
-        content: "";
-        top: 0;
-        right: -43px;
-        width: 36px;
-        height: 36px;
-        background-color: transparent;
-        background-image: url("https://uploads.codesandbox.io/uploads/user/7aea28f2-5178-4c50-a203-997db41c7823/yGt8-calendar_icon.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        border-radius: 10px;
-      }
-
-      input[type="date"] {
-        position: relative;
-        padding: 0 10px;
-        width: 195px;
-        height: 36px;
-        border: 0;
-        background: transparent;
-        box-sizing: border-box;
-        font-size: 16px;
-        font-family: antialiased;
-      }
-      input[type="date"]::-webkit-clear-button {
-        position: relative;
-        top: 0;
-        padding: 1.5px;
-        right: 40px;
-        cursor: pointer;
-      }
-      input[type="date"]::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-        }
-      input[type="date"]::-webkit-calendar-picker-indicator {
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 0;
-        width: 36px;
-        height: 36px;
-        background: transparent;
-        color: transparent;
-        cursor: pointer;
+      input::placeholder {
+        color: black;
       }
     }
 
     #time {
       float: left;
-      label {
-        position: relative;
-        display: inline-block;
-        width: 95px;
-        height: 36px;
-        border: 2px solid #ccc;
-        border-radius: 15px;
-      }
-
-      input[type="time"] {
-        position: relative;
-        padding: 0 10px;
-        height: 36px;
-        width: 130px;
-        border: 0;
-        background: transparent;
-        box-sizing: border-box;
-        font-size: 16px;
-        font-family: antialiased;
-      }
-      input[type="time"]::-webkit-clear-button {
-        position: relative;
-        padding: 1.5px;
-        top: 0;
-        right: 4px;
-        cursor: pointer;
-      }
-      input[type="time"]::-webkit-inner-spin-button {
-        position: relative;
-        top: 0;
-        right: -13px;
-        padding: 5px;
-        margin: 6px 5px;
-        cursor: pointer;
+      margin: 0 0 0 10px;
+      
+      select {
+        width: 90px;
       }
     }
   }
+
   @media screen and (max-width: 480px) {
     #when {
       width: 95%;
       #date {
-        label::before {
-          background-image: none;
-        }
-        label {
-          width: 145px;
-        }
-
-        label::before {
-          width: 36px;
-          background-image: none;
-        }
-
         input[type="date"] {
           width: 185px;
         }
@@ -165,9 +85,6 @@
     }
     #time {
       float: left;
-      label {
-        width: 75px;
-      }
 
       input[type="time"] {
         width: 110px;
